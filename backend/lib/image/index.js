@@ -8,9 +8,9 @@ exports.get = word => {
   const options = {
     uri: 'https://www.googleapis.com/customsearch/v1',
     qs: {
-      q: word,
+      q: `${word}`,
       searchType: 'image',
-      imgSize: 'medium',
+      imgSize: 'large',
       num: 1
     },
     headers: {
@@ -21,9 +21,13 @@ exports.get = word => {
   _.assign(options.qs, api_key);
 
 
-  return rp(options).then(res => ({
-    link: _.get(res, ['items', 0, 'link']),
-    title: _.get(res, ['items', 0, 'title'])
-  }));
+  return rp(options).then(res => {
+
+    return res.items && res.items.length ? {
+      link: _.get(res, ['items', 0, 'link']),
+      title: _.get(res, ['items', 0, 'title'])
+    } : null;
+
+  });
 
 };

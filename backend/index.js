@@ -1,20 +1,11 @@
 const express = require('express'),
-    pmongo = require('promised-mongo'),
+    mdb = require('./models/mongo'),
     //bodyParser = require('body-parser'),
     config = require('./config');
 
 const app = express();
 
-
-const mdb = pmongo(config.mongodb.database);
-
 app.get('/api/posts', (req, res) => {
-    //const posts = [
-    //    {
-    //        url: 'http://render.fineartamerica.com/images/rendered/search/print/images/artworkimages/medium/1/siamese-cat-corey-ford.jpg',
-    //        title: 'Cats'
-    //    }
-    //];
 
     return mdb.collection('posts').find({})
         .then(posts => res.json(posts));
