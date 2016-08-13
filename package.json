@@ -8,8 +8,7 @@
     "moment": "2.10.6",
     "promised-mongo": "1.2.0",
     "request": "^2.74.0",
-    "request-promise": "^4.0.2",
-    "walk": "2.3.9"
+    "request-promise": "^4.0.2"
   },
   "devDependencies": {
     "eslint": "^3.2.2",
