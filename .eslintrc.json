@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "./node_modules/eslint-config-warp/node.js",
+    "./node_modules/eslint-config-warp/es6.js"
+  ],
+  "env": {
+    "node": true,
+    "es6":true
+  },
+  "rules": {
+    "indent": [0, 4],
+    "max-len": [2, {"code": 150}],
+    "strict": [0]
+  }
+}
