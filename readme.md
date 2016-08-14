@@ -1,14 +1,31 @@
-- http server with api/posts returning
+# Auto-generated blog
 
-[{
-imageUrl,
-title
-},{}]
+Takes a random word every day and  (hopefully) finds a painting about it using custom google search
 
+## Start webserver
 
+    export NODE_ENV=dev
+    node server
 
-- random word generator based on words.txt (no repeat of words)
+## Start scraper
 
-- module which queries google images
+create [custom google search](https://developers.google.com/custom-search/)
+ and put  api_key.json into ```backend/lib/image/``` which looks like:
 
-- process which add new post to db every hour
+    {
+        "key": "AIzaSyGHUY789bdcfcEdBMR7tHQrwxWQDb3SieI",
+        "cx": "00011111111111111:e-aaaaaaaaa"
+    }
+    
+then
+
+    export NODE_ENV=dev
+    node server scraper
+    
+    
+## Generate a post
+ 
+    export NODE_ENV=dev
+    node server insert
+ 
+    

@@ -1,17 +1,22 @@
 'use strict';
 
-const Controllers = require('../controllers');
+const mdb = require('../models/mongo');
 
 
-module.exports = function (app) {
-    Controllers.init().then(controllers => {
-        app.get('/api/posts', controllers.api.posts.index);
+module.exports = app => {
+    app.get('/', (req, res) => {
+        const page = parseInt(req.query.page) || 1;
+        const postPerPage = 7;
 
-        app.get('*', (req, res) => {
-            res.status(404).send('Resource not found');
-        });
-
-    }, () => {
-        console.log('API cannot be initialised.');
+        return mdb.collection('posts').find({}).sort({_id: -1}).skip((page - 1) * postPerPage).limit(postPerPage)
+          .then(posts => res.render('index', {posts: posts, page: page}))
+          .catch(err => res.error(err));
     });
+
+    app.get('/api/posts', (req, res) =>
+      mdb.collection('posts').find({}).sort({_id: -1})
+      .then(posts => res.json(posts))
+      .catch(err => res.error(err)));
+
+    app.get('*', res => res.status(404).json({error: 404, message: 'not found'}));
 };

@@ -9,6 +9,8 @@ exports.get = word => {
     uri: 'https://www.googleapis.com/customsearch/v1',
     qs: {
       q: `${word}`,
+      imgType: 'photo',
+      fileType: 'jpg',
       searchType: 'image',
       imgSize: 'large',
       num: 1

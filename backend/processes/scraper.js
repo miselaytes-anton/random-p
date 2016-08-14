@@ -1,9 +1,8 @@
 const cron = require('node-cron'),
-    _ = require('lodash'),
-    Promise = require('bluebird'),
-      getWord = require('../../lib/word').get,
-      getImage = require('../../lib/image').get,
-      mdb = require('../../models/mongo');
+  _ = require('lodash'),
+  getWord = require('../lib/word').get,
+  getImage = require('../lib/image').get,
+  mdb = require('../models/mongo');
 
 
 const insert = () => {
@@ -21,7 +20,7 @@ const getPost = () => {
       if (image){
         console.log(`${word} - ok`);
 
-        return _.assign(image, {word: word});
+        return _.assign(image, {word: word, date: new Date()});
       } else {
         console.log(`${word} - not found`);
 
@@ -31,12 +30,12 @@ const getPost = () => {
     }));
 };
 
-exports.start = () => {
-  console.log(`Hi, I'm a scraper`);
+exports.schedule = () => {
+  console.log(`Hi, I'm a scraper. I generate content and insert into DB`);
 
   // insert every hour
-  cron.schedule('0 * * * *', () => {
-    console.log('running a task every hour', new Date());
+  cron.schedule('0 0 * * *', () => {
+    console.log('Generating a post', new Date());
     insert();
   });
 };
