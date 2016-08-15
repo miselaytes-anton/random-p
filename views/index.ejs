@@ -94,15 +94,17 @@
             <% }); %>
             <!-- Pager -->
             <ul class="pager">
-                <%if (page > 1) { %>
+                <%if (hasNewer) { %>
                 <li class="previous">
                     <a href="?page=<%= page-1 %>"> &larr; Newer</a>
                 </li>
                 <% } %>
 
+                <%if (hasOlder) { %>
                 <li class="next">
                     <a href="?page=<%= page+1 %>">Older &rarr;</a>
                 </li>
+                <% } %>
             </ul>
         </div>
     </div>
