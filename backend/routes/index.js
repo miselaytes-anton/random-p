@@ -25,5 +25,5 @@ module.exports = app => {
       .then(posts => res.json(posts))
       .catch(err => res.error(err)));
 
-    app.get('*', res => res.status(404).json({error: 404, message: 'not found'}));
+    app.get('*', (req, res) => res.status(404).json({error: 404, message: 'not found'}));
 };
