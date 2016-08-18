@@ -23,13 +23,11 @@ exports.get = word => {
   _.assign(options.qs, api_key);
 
 
-  return rp(options).then(res => {
-
-    return res.items && res.items.length ? {
+  return rp(options)
+    .then(res => res.items && res.items.length ? {
       link: _.get(res, ['items', 0, 'link']),
-      title: _.get(res, ['items', 0, 'title'])
-    } : null;
-
-  });
+      title: _.get(res, ['items', 0, 'title']),
+      source: _.get(res, ['items', 0, 'image', 'contextLink'])
+    } : null);
 
 };
