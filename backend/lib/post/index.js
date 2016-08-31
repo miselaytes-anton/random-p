@@ -19,7 +19,7 @@ exports.generate = () => {
 
   let postData = {
     word: '',
-    classes: [],
+    tags: [],
     image: {
       link: '',
       source: '',
@@ -32,9 +32,10 @@ exports.generate = () => {
     .tap(checkWordDuplicate)
     .tap(word => postData.word = word)
     .then(getImage)
+    .tap(image => image ? Promise.resolve() : Promise.reject({word: postData.word, code: 'word_not_found'}))
     .tap(image => checkImageDuplicate(image, postData.word))
     .tap(image => postData.image = image)
     .then(image => getClasses(image.link))
-    .then(classes => postData.classes = classes)
+    .then(classes => postData.tags = classes)
     .then(() => postData);
 };
