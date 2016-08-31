@@ -19,6 +19,9 @@ module.exports.getClasses = url => {
 
   return rp(options)
     .then(res => {
+      if (res.status === 'ERROR') {
+        return [];
+      }
       //console.log(JSON.stringify(res));
 
       return _.map(_.get(res, ['images', 0, 'classifiers', 0, 'classes']), 'class');
