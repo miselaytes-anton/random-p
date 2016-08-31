@@ -20,6 +20,7 @@ module.exports.getClasses = url => {
   return rp(options)
     .then(res => {
       if (res.status === 'ERROR') {
+        console.log('Watson error', res.statusInfo)
         return [];
       }
       //console.log(JSON.stringify(res));
