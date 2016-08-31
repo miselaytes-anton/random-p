@@ -1,31 +1,11 @@
+'use strict';
+
 const cron = require('node-cron'),
-  _ = require('lodash'),
-  Promise = require('bluebird'),
-  getWord = require('../lib/word').get,
-  getImage = require('../lib/image').get,
+  generatePost = require('../lib/post').generate,
   mdb = require('../models/mongo');
 
-const getPost = () => getWord()
-  .then(word => mdb.collection('posts').findOne({word: word})
-    .then(post => post ? Promise.reject({word: word, code: 'word_duplicate'}) : getImage(word))
-    .then(image => {
-      if (!image) {
-        return Promise.reject({word: word, code: 'word_not_found'});
-      }
 
-      return mdb.collection('posts').findOne({link: image.link})
-        .then(post => {
-          if (post) {
-            return Promise.reject({word: word, code: 'image_duplicate'});
-          }
-
-          return _.assign(image, {word: word, date: new Date()});
-        });
-    })
-);
-
-
-const insert = () => getPost()
+const insert = () => generatePost()
   .then(post => {
     console.log(`${post.word} - ok`);
 

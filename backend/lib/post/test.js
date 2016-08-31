@@ -1,0 +1,1 @@
+require('./index').generate().then(console.log).catch(console.error)
