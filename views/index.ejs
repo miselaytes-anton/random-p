@@ -51,8 +51,8 @@
                     <h2 class="post-title" style="font-size: 36px;margin-top: 30px;margin-bottom: 10px;">
                         <%= post.word.slice(0,1).toUpperCase()+ post.word.slice(1).toLowerCase()%>
                     </h2>
-                    <img style="width:100%" src="<%= post.link %>">
-                    <p class="post-meta"> <%= post.title.replace('...','') %> <a target="_blank" href="<%= post.source %>">...</a> </p>
+                    <img style="width:100%" src="<%= post.image.link %>">
+                    <p class="post-meta"> <%= post.image.title.replace('...','') %> <a target="_blank" href="<%= post.image.source %>">...</a> </p>
 
                     <hr>
                 </div>
