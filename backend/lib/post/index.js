@@ -15,7 +15,7 @@ const checkImageDuplicate = (image, word) =>
     .then(post => post ? Promise.reject({word: word, code: 'image_duplicate'}) : Promise.resolve());
 
 
-exports.generate = () => {
+exports.get = () => {
 
   let postData = {
     word: '',

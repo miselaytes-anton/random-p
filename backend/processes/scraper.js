@@ -1,11 +1,11 @@
 'use strict';
 
 const cron = require('node-cron'),
-  generatePost = require('../lib/post').generate,
+  getPost = require('../lib/post').get,
   mdb = require('../models/mongo');
 
 
-const insert = () => generatePost()
+const insert = () => getPost()
   .then(post => {
     console.log(`${post.word} - ok`);
 
