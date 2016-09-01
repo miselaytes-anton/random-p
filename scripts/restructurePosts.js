@@ -9,10 +9,9 @@ const _ = require('lodash'),
 mdb.collection('posts').find()
   .then(posts => {
     return Promise.each(posts, post =>{
-      post.image = {link: post.link, title:post.title,source:post.source};
-      delete post.link;
-      delete post.title;
-      delete post.source;
+      post.ibmAnalysis = {tags: post.tags};
+      delete post.tags;
+
       return mdb.collection('posts').update({_id: post._id}, post);
       //console.log(JSON.stringify(post));
     });
