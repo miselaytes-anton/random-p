@@ -18,7 +18,7 @@ create [custom google search](https://developers.google.com/custom-search/)
     }
  
 get a [watson visual recognition](http://www.ibm.com/watson/developercloud/visual-recognition/api/v3/?node#apiexplorer)  api key
- and put  api_key.json into ```backend/lib/visual/``` which looks like:
+ and put  api_key.json into ```backend/lib/tags/``` which looks like:
 
     {
         "api_key": "AIzaSyGHUY789bdcfcEdBMR7tHQrwxWQDb3SieI"
@@ -38,9 +38,13 @@ then
     
 ## Some useful links
     
+    https://developers.google.com/apis-explorer/?hl=en_US#p/customsearch/v1/search.cse.list
+    
     https://www.googleapis.com/customsearch/v1?q=cat&searchType=image&imgSize=medium&key=AIzaSyDfAKj68bdcfcEdBMR7tHQrwxWQDb3SieI&cx=000558238072111463742:e-eakfbdozy&num=1
     
     https://developers.google.com/custom-search/json-api/v1/reference/cse/list
+    
+    
     
     http://crontab.guru/every-1-hour
 
@@ -52,15 +56,12 @@ then
 
 
 - www.moma.org	
-- www.mfa.org/artemis	
+- www.mfa.org
 - www.tate.org.uk	
 - art.famsf.org	
-- sirismm.si.edu	
-- www.invaluable.com	
-- artbeyondsight.org	
 - www.nga.gov	
 - metmuseum.org	
-- www.artcyclopedia.com	
+- wikiart.org
     
  
     

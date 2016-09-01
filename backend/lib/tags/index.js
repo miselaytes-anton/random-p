@@ -2,8 +2,9 @@ const rp = require('request-promise'),
   api_key = require('./api_key'),
   _ = require('lodash');
 
+const tagsToExclude = ['small', 'medium', 'large'];
 
-module.exports.getClasses = url => {
+module.exports.get = url => {
   const options = {
     uri: 'https://gateway-a.watsonplatform.net/visual-recognition/api/v3/classify',
     qs: {
@@ -25,7 +26,8 @@ module.exports.getClasses = url => {
       }
       //console.log(JSON.stringify(res));
 
-      return _.map(_.get(res, ['images', 0, 'classifiers', 0, 'classes']), 'class');
+      return _.map(_.get(res, ['images', 0, 'classifiers', 0, 'classes']), 'class')
+        .filter(tag => !_.includes(tagsToExclude, tag));
     });
 };
 //http://www.ibm.com/watson/developercloud/visual-recognition/api/v3/?curl#classify_an_image

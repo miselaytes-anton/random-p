@@ -2,7 +2,7 @@
 
 const _ = require('lodash'),
   Promise = require('bluebird'),
-  getClasses = require('../backend/lib/visual').getClasses,
+  getTags = require('../backend/lib/tags').get,
   mdb = require('../backend/models/mongo');
 
 
@@ -12,9 +12,9 @@ mdb.collection('posts').find({})
 
 
       if (!post.tags) {
-        return getClasses(post.image.link)
-          .then(classes => {
-            post.tags = classes;
+        return getTags(post.image.link)
+          .then(tags => {
+            post.tags = tags;
 
             return mdb.collection('posts').update({_id: post._id}, post);
           });

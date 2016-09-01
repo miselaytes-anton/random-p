@@ -62,8 +62,9 @@
                     <!-- TAGS-->
                     <%if (post.tags && post.tags.length) { %>
                         <p class="post-meta">Tags:
-                            <% post.tags.forEach(function(tag) { %>
-                            <a href="#<%= post._id %>"><%= tag %></a>
+                            <% post.tags.forEach(function(tag,i) { %>
+                                <a href="#<%= post._id %>"><%= tag %></a>
+                            <%if (post.tags[i+1]) { %>, <% } %>
                             <% }); %>
                         </p>
                     <% } %>
