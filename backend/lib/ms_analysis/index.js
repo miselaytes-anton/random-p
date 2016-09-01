@@ -30,6 +30,14 @@ module.exports.get = url => {
         categories: _.map(res.categories, 'name'),
         caption: _.get(res, ['description', 'captions', 0, 'text'])
       };
+    }).catch(err => {
+      console.error('ms error', err);
+
+      return {
+        tags: [],
+        categories: [],
+        caption: ''
+      };
     });
 };
 /*
