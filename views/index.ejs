@@ -46,28 +46,32 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
-            <% posts.forEach(function(post) { %>
+            <% posts.forEach(function(post, index) { %>
                 <div class="post-preview" id="<%= post._id %>">
 
                     <h2 class="post-title" style="font-size: 36px;margin-top: 30px;margin-bottom: 20px;">
-                        <%= post.word.slice(0,1).toUpperCase()+ post.word.slice(1).toLowerCase()%>
+                        "<%=  post._roboCaption %>"
                     </h2>
+
+                    <h3 class="post-subtitle" style="margin: 10px 0 10px; font-weight: 300;">
+                        - <%= index%2===0? 'thought one robot': 'thought another' %>
+                    </h3>
 
                     <img style="width:100%" src="<%= post.image.link %>">
 
-                    <h3 class="post-subtitle" style="margin: 10px 0 10px; font-weight: 300;">
-                        <%= post.image.title.replace('...','') %> <a target="_blank" href="<%= post.image.source %>">...</a>
-                    </h3>
+                    <span class="post-meta">Word: <%= post.word %> </span><br>
 
                     <!-- TAGS-->
-                    <%if (post.tags && post.tags.length) { %>
-                        <p class="post-meta">Tags:
-                            <% post.tags.forEach(function(tag,i) { %>
+                    <%if (post._tags && post._tags.length) { %>
+                        <span class="post-meta">Tags:
+                            <% post._tags.forEach(function(tag,i) { %>
                                 <a href="#<%= post._id %>"><%= tag %></a>
-                            <%if (post.tags[i+1]) { %>, <% } %>
+                            <%if (post._tags[i+1]) { %>, <% } %>
                             <% }); %>
-                        </p>
+                        </span><br>
                     <% } %>
+
+                    <span class="post-meta">Source: <a target="_blank" href="<%= post.image.source %>"><%= post._sourceCaption %></a></span>
 
                     <hr>
                 </div>
