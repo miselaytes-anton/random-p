@@ -27,6 +27,7 @@ module.exports.get = url => {
 
       return {
         tags: _.map(res.tags, 'name'),
+        categories: _.map(res.categories, 'name'),
         caption: _.get(res, ['description', 'captions', 0, 'text'])
       };
     });

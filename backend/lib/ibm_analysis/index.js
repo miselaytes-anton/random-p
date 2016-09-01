@@ -22,12 +22,15 @@ module.exports.get = url => {
     .then(res => {
       if (res.status === 'ERROR') {
         console.log('Watson error', res.statusInfo)
-        return [];
+
+        return {tags: []};
       }
       //console.log(JSON.stringify(res));
 
-      return _.map(_.get(res, ['images', 0, 'classifiers', 0, 'classes']), 'class')
+      const tags = _.map(_.get(res, ['images', 0, 'classifiers', 0, 'classes']), 'class')
         .filter(tag => !_.includes(tagsToExclude, tag));
+
+      return {tags: tags};
     });
 };
 //http://www.ibm.com/watson/developercloud/visual-recognition/api/v3/?curl#classify_an_image

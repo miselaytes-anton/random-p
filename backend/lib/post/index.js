@@ -3,7 +3,8 @@
 const Promise = require('bluebird'),
   getWord = require('../word').get,
   getImage = require('../image').get,
-  getTags = require('../visual').get,
+  getIbmAnalysis = require('../ibm_analysis').get,
+  getMsAnalysis = require('../ms_analysis').get,
   mdb = require('../../models/mongo');
 
 const checkWordDuplicate = word =>
@@ -19,7 +20,14 @@ exports.get = () => {
 
   let postData = {
     word: '',
-    tags: [],
+    ibmAnalysis: {
+      tags: []
+    },
+    msAnalysis: {
+      tags: [],
+      caption: '',
+      categories: []
+    },
     image: {
       link: '',
       source: '',
@@ -35,7 +43,7 @@ exports.get = () => {
     .tap(image => image ? Promise.resolve() : Promise.reject({word: postData.word, code: 'word_not_found'}))
     .tap(image => checkImageDuplicate(image, postData.word))
     .tap(image => postData.image = image)
-    .then(image => getTags(image.link))
-    .then(tags => postData.tags = tags)
+    .tap(image => getIbmAnalysis(image.link).then(analysis => postData.ibmAnalysis = analysis))
+    .tap(image => getMsAnalysis(image.link).then(analysis => postData.msAnalysis = analysis))
     .then(() => postData);
 };
