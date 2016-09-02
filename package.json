@@ -2,18 +2,19 @@
   "name": "random-p",
   "dependencies": {
     "bluebird": "2.10.2",
-    "body-parser": "^1.14.1",
-    "ejs": "^2.5.1",
+    "body-parser": "1.14.1",
+    "ejs": "2.5.1",
     "express": "4.13.3",
     "lodash": "4.14.0",
-    "moment": "2.10.6",
-    "node-cron": "^1.1.1",
+    "node-cron": "1.1.1",
     "promised-mongo": "1.2.0",
-    "request": "^2.74.0",
-    "request-promise": "^4.0.2"
+    "random-name": "0.1.2",
+    "request": "2.74.0",
+    "request-promise": "4.0.2",
+    "rss": "1.2.1"
   },
   "devDependencies": {
-    "eslint": "^3.2.2",
-    "eslint-config-warp": "^1.0.1"
+    "eslint": "3.2.2",
+    "eslint-config-warp": "1.0.1"
   }
 }
