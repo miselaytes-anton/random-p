@@ -40,7 +40,7 @@ module.exports = (req, res) => {
           description: getDescriptionHTML(p),
           url: `${baseUrl}/${p._id}`, // link to the item
           categories: p._tags,
-          author: 'Robot', // optional - defaults to feed author property
+          author: p.author, // optional - defaults to feed author property
           date: p.date // any format that js Date can parse.
 
         });
