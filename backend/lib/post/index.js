@@ -5,6 +5,7 @@ const Promise = require('bluebird'),
   getImage = require('../image').get,
   getIbmAnalysis = require('../ibm_analysis').get,
   getMsAnalysis = require('../ms_analysis').get,
+  getRoboName = require('../robo_name').get,
   mdb = require('../../models/mongo');
 
 const checkWordDuplicate = word =>
@@ -20,6 +21,7 @@ exports.get = () => {
 
   let postData = {
     word: '',
+    author: getRoboName(),
     ibmAnalysis: {
       tags: []
     },
