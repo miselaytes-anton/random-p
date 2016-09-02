@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Words & Arts</title>
+    <title><%= blog.title %></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -32,9 +32,9 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="site-heading" style="color:#333">
-                    <h1 >Words & Arts (generated)</h1>
+                    <h1 ><%= blog.title %></h1>
                     <hr class="small">
-                    <span class="subheading"> Random word every day and (hopefully) an artwork for it</span>
+                    <span class="subheading"> <%= blog.description %></span>
 
                 </div>
             </div>
