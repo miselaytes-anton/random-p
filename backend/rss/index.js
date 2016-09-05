@@ -8,7 +8,6 @@ const getDescriptionHTML = p => `
     <img src="${p.image.link}">
     <p>${p.image.title}</p>
   </a>
-  <strong>Word</strong>: ${p.word}<br>
   <strong>Tags</strong>: ${p._tags.join(', ')}
 `;
 
@@ -21,8 +20,8 @@ module.exports = (req, res) => {
     description: blog.description,
     feed_url:  `${baseUrl}/rss`,
     site_url: baseUrl,
-    image_url: `${baseUrl}/img/five-pears.jpg`,
-    managingEditor: 'Anton Miselaytes',
+    image_url: `${baseUrl}/img/wobly.png`,
+    managingEditor: 'Wobly',
     webMaster: 'Anton Miselaytes',
     language: 'en',
     categories: ['Arts', 'Words', 'Robots'],
@@ -40,7 +39,7 @@ module.exports = (req, res) => {
           description: getDescriptionHTML(p),
           url: `${baseUrl}/${p._id}`, // link to the item
           categories: p._tags,
-          author: p.author, // optional - defaults to feed author property
+          author: 'Wobly', // optional - defaults to feed author property
           date: p.date // any format that js Date can parse.
 
         });

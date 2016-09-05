@@ -9,6 +9,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/favicon/manifest.json">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="/favicon/favicon.ico">
+    <meta name="msapplication-config" content="/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
     <title><%= blog.title %></title>
 
     <!-- Bootstrap Core CSS -->
@@ -24,14 +34,17 @@
 
 </head>
 
-<body>
+<body style="background-color: floralwhite;">
 
 <!-- Page Header -->
 <header class="intro-header" style="">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading" style="color:#333">
+            <div class="col-xs-3">
+                <img src="/img/wobly.png"  class="site-heading" style="width: 100%;">
+            </div>
+            <div class="col-xs-8">
+                <div class="site-heading" style="color:#333; text-align: left; font-size: 60px;">
                     <h1 ><%= blog.title %></h1>
                     <hr class="small">
                     <span class="subheading"> <%= blog.description %></span>
@@ -55,7 +68,7 @@
 
                     <img style="width:100%" src="<%= post.image.link %>">
 
-                    <span class="post-meta">Word: <%= post.word %> </span><br>
+                    <!--<span class="post-meta">Word: <%= post.word %> </span><br>-->
 
                     <!-- TAGS-->
                     <%if (post._tags && post._tags.length) { %>
@@ -67,7 +80,7 @@
                         </span><br>
                     <% } %>
 
-                    <span class="post-meta">Author: <%= post.author %> </span><br>
+                    <!--<span class="post-meta">Author: <%= post.author %> </span><br>-->
 
                     <span class="post-meta">Source: <a target="_blank" href="<%= post.image.source %>"><%= post._sourceCaption %></a></span>
 
