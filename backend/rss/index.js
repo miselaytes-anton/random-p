@@ -8,6 +8,7 @@ const getDescriptionHTML = p => `
     <img src="${p.image.link}">
     <p>${p.image.title}</p>
   </a>
+  <strong>Word</strong>: ${p.word}<br>
   <strong>Tags</strong>: ${p._tags.join(', ')}
 `;
 
