@@ -24,6 +24,10 @@ module.exports = app => {
 
     });
 
+  app.get('/about', (req, res) => {
+    res.render('about', { blog: blog});
+  });
+
     app.get('/api/posts', (req, res) =>
       posts.find({}).sort({_id: -1})
       .then(posts => res.json(posts))
