@@ -10,19 +10,23 @@ Takes a random word every day and  (hopefully) finds a painting about it using c
 ## Start scraper
 
 create [custom google search](https://developers.google.com/custom-search/)
- and put  api_key.json into ```backend/lib/image/``` which looks like:
+ and put  api_keys.json into project root
 
     {
-        "key": "AIzaSyGHUY789bdcfcEdBMR7tHQrwxWQDb3SieI",
-        "cx": "00011111111111111:e-aaaaaaaaa"
+      "facebook": {
+        "token": "EnjFhPzu4iuDZBD86ZAYErYuZCfCuE3ME4nfhhL9f5klSvIqrPNWoSMRt6UzX2IVf7xPRErxGYZD"
+      },
+      "microsoft": {
+        "subscription-key": "d1dccaeaf7cd3e5fd"
+      },
+      "ibm": {
+        "api_key": "07e9d1e661b8c22f"
+      },
+      "google": {
+        "key": "AIzaZnDuQNidEbLcAw",
+        "cx": "0005584axtw-yhqs"}
     }
  
-get a [watson visual recognition](http://www.ibm.com/watson/developercloud/visual-recognition/api/v3/?node#apiexplorer)  api key
- and put  api_key.json into ```backend/lib/tags/``` which looks like:
-
-    {
-        "api_key": "AIzaSyGHUY789bdcfcEdBMR7tHQrwxWQDb3SieI"
-    }
         
 then
 

@@ -2,14 +2,17 @@
 
 const cron = require('node-cron'),
   getPost = require('../lib/post').get,
-  mdb = require('../models/mongo');
+  mdb = require('../models/mongo'),
+  facebook = require('../lib/facebook'),
+  posts = mdb.posts;
 
 
 const insert = () => getPost()
   .then(post => {
     console.log(`${post.word} - ok`);
 
-    return mdb.collection('posts').insert(post);
+    return posts.insert(post)
+      .then(() => facebook.publish(posts.formatForView(post)));
   })
   .catch(err => {
 

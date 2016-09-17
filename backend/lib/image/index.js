@@ -1,5 +1,5 @@
 const rp = require('request-promise'),
-  api_key = require('./api_key'),
+  api_key = require('../../../api_keys.json').google,
   _ = require('lodash')
 
 exports.get = word => {
