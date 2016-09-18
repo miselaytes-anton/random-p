@@ -6,7 +6,11 @@ const express = require('express'),
 const app = express();
 app.use(error);
 app.use(express.static('public'));
-app.set('view engine', 'ejs');
+
+app.set('views', './views');
+app.set('view engine', 'jsx');
+app.engine('jsx', require('express-react-views').createEngine());
+
 require('../routes')(app);
 
 const server = app.listen(config.http.port, () => {

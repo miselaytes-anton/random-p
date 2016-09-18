@@ -25,7 +25,7 @@ module.exports = app => {
     });
 
   app.get('/about', (req, res) => {
-    res.render('about', { blog: blog});
+    res.render('about', {blog: blog});
   });
 
     app.get('/api/posts', (req, res) =>
