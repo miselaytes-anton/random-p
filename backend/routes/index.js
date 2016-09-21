@@ -24,6 +24,12 @@ module.exports = app => {
 
     });
 
+  app.get('/:word', (req, res) =>
+     posts.findOne({word: req.params.word})
+     .then(post => post ? res.render('single', {post: posts.formatForView(post), blog: blog}) : res.error([404, 'not found']))
+     .catch(res.error)
+  );
+
   app.get('/about', (req, res) => {
     res.render('about', {blog: blog});
   });
