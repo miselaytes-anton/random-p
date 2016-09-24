@@ -24,6 +24,8 @@ module.exports = app => {
 
     });
 
+  app.get('/rss', require('../rss'));
+
   app.get('/:word', (req, res) =>
      posts.findOne({word: req.params.word})
      .then(post => post ? res.render('single', {post: posts.formatForView(post), blog: blog}) : res.error([404, 'not found']))
@@ -39,8 +41,6 @@ module.exports = app => {
       .then(posts => res.json(posts))
       .catch(err => res.error(err)));
 
-
-    app.get('/rss', require('../rss'));
     app.get('*', (req, res) => res.status(404).json({error: 404, message: 'not found'}));
 };
 
