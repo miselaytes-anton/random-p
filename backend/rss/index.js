@@ -13,7 +13,7 @@ const getDescriptionHTML = p => `
 `;
 
 module.exports = (req, res) => {
-  const baseUrl = 'http://words.amiselaytes.com';
+  const baseUrl = 'http://wobly.amiselaytes.com';
 
   /* lets create an rss feed */
   const feed = new RSS({
@@ -38,7 +38,7 @@ module.exports = (req, res) => {
         feed.item({
           title:   post._roboCaption,
           description: getDescriptionHTML(p),
-          url: `${baseUrl}/${p._id}`, // link to the item
+          url: `${baseUrl}/${p.word}`, // link to the item
           categories: p._tags,
           author: 'Wobly', // optional - defaults to feed author property
           date: p.date // any format that js Date can parse.
