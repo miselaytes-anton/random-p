@@ -7,7 +7,7 @@ Then the image is given a caption and tags using <a href="https://en.wikipedia.o
 For computer vision I used  APIs from Google, IBM and Microsoft. 
 For finding painting and various art objects photos I used Google Image search APIs.
 
-[Wobly](./public/img/wobly.png)
+![Wobly](./public/img/wobly.png)
 
 ## Start webserver
 
