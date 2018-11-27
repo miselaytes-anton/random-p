@@ -1,6 +1,13 @@
-# Auto-generated blog
+# Wobly
 
-Takes a random word every day and  (hopefully) finds a painting about it using custom google search
+The idea was to create a completely computer-generated blog, "written" by  Wobly. He is a fictional charachter, a robot and art critic who "blogs" about human arts.
+Every day a random word is picked. Then an image, hopefully an artwork, is found for this word using Google.
+Then the image is given a caption and tags using <a href="https://en.wikipedia.org/wiki/Computer_vision">computer vision </a> technologies.
+
+For computer vision I used  APIs from Google, IBM and Microsoft. 
+For finding painting and various art objects photos I used Google Image search APIs.
+
+[Wobly](./public/img/wobly.png)
 
 ## Start webserver
 
